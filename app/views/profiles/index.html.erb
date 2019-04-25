@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <script src="events.js" type="javascript.js"></script>
+    <title>Twitter Fetcher</title>
+  </head>
+  <body>
+    <h1>Twitter Fetcher</h1>
+    <h3>Crawling in my rails, these tweets they will not heal!</h3>
+
+    <form action="profiles" method="POST">
+      <label for="input">
+        Screenname: <input type="text" name="name" placeholder="Fretadao"/>
+        <br>
+        Add profile: <input type="text" name="twitter" placeholder="/usefretadao"/>
+    </label>
+      <button type="submit" class="trigger">Add profile</button>
+      <br>
+    </form>
+    <form action="/search" method="POST">
+      <label for="input">Search profile: <input type="text" name="search" placeholder="gameideamachine"/></label>
+      <button type="submit" class="fetcher">Search profile</button>
+    </form>
+    <hr color="#D0D0D0" size='2px'>
+    <div class="container">
+      <ul id="profiles">
+        <% @profiles.each do |profile| %>
+          <li><a href="profiles/<%=profile.id%>"><%= profile.username %></a> <a href=<%=profile.url%>><%=profile.url%></a></li>
+        <% end %>
+      </ul>
+
+    </div>
+
+  </body>
+</html>
