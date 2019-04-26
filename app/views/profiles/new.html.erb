@@ -1,11 +1,10 @@
 <h1>Add new profile</h1>
 <%= link_to "Profile", root_path %>
-<h1>Twitter Profiles</h1>
 <%= form_for @profile do |f| %>
-  <%= label_tag(:name, "Title:") %>
-  <%= f.text_field :name %></br>
+  <%= label_tag(:name, "Screenname:") %>
+  <%= f.text_field :name, placeholder: "Game Idea Machine" %></br>
 
   <%= label_tag(:url, "URL:") %>
-  <%= f.text_field :url %></br>
+  <%= f.text_field :url, placeholder: "https://twitter.com/gameideamachine" %></br>
   <%= f.submit "Create" %>
 <% end %>

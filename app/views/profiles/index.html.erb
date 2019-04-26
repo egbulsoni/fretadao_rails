@@ -29,9 +29,10 @@
     <div class="container">
       <ul id="profiles">
         <% @profiles.each do |profile| %>
-          <li><a href="profiles/<%=profile.id%>"><%= profile.username %></a> <a href=<%=profile.url%>><%=profile.url%></a>
-          <%= link_to "edit", edit_profile_path(profile[:id]) %></li> 
-
+          <li><a href="profiles/<%=profile.id%>"><%= profile.username %></a>
+          <a href=<%=profile.url%>><%=profile.url%></a>
+          <%= link_to "edit", edit_profile_path(profile[:id]) %>
+          <%= link_to "delete", profile, method: :delete, data: { confirm: "You sure?" }%></li>
         <% end %>
       </ul>
 

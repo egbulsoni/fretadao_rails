@@ -7,7 +7,10 @@ require "shorturl"
 
 module Scraper
   def self.scrape(page_query)
-    url = 'https://twitter.com' + page_query
+    twitter = "https://twitter.com/"
+    url = page_query if page_query[0,20] == twitter
+    url = RedirectFollower.new("#{page_query}").url unless page_query[0,20] == twitter
+    # url = HTTParty.get(page_query) if page_query[0,19] = "https://tinyurl.com"
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
     profile_pic = parsed_page.css('img.ProfileAvatar-image').attribute('src')
@@ -23,10 +26,11 @@ module Scraper
       url: "#{ShortURL.shorten("#{url}")}",
       desc: "#{profile_desc.text.strip}"
     }
+
   end
 end
 
-# p ShortURL.valid_services
+# ShortURL.valid_services
 # puts('input the twitter profile url, i.e: /usefretadao')
 # page = gets.chomp
 # puts Scraper.scrape(page)

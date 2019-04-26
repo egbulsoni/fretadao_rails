@@ -150,6 +150,7 @@ GEM
     rb-fsevent (0.10.3)
     rb-inotify (0.10.0)
       ffi (~> 1.0)
+    redirect_follower (0.1.1)
     regexp_parser (1.4.0)
     request_store (1.4.1)
       rack (>= 1.4)
@@ -220,6 +221,7 @@ DEPENDENCIES
   nokogiri (~> 1.10, >= 1.10.3)
   puma (~> 3.11)
   rails (~> 5.2.3)
+  redirect_follower (~> 0.1.1)
   sass-rails (~> 5.0)
   selenium-webdriver
   shorturl (~> 1.0)

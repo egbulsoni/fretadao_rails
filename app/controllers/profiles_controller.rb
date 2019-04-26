@@ -37,6 +37,11 @@ class ProfilesController < ApplicationController
     redirect_to profile_path(@profile)
   end
 
+  def destroy
+    @profile = Profile.find(params[:id]).destroy
+    redirect_to root_path
+  end
+
   def search
   end
 
