@@ -43,7 +43,9 @@ class ProfilesController < ApplicationController
   end
 
   def search
-    @fetched_profiles = Profile.find(:all).select {|i| i.foo == bar }
+    @profile = Profile.all
+    render json: @profile
+    # @fetched_profiles = Profile.find(:all).select {|p| p.username ==  }
   end
 
   private

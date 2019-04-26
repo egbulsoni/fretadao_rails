@@ -4,6 +4,7 @@ Rails.application.routes.draw do
   root 'profiles#index'
   # get '/profile/:id', to: 'profiles#show'
   resources :profile
+  # post '/search', to: 'profiles#search'
   # post '/create', to: 'profiles#create'
   # get '/search?:value', to: 'profiles#search'
 
