@@ -43,6 +43,7 @@ class ProfilesController < ApplicationController
   end
 
   def search
+    @fetched_profiles = Profile.find(:all).select {|i| i.foo == bar }
   end
 
   private

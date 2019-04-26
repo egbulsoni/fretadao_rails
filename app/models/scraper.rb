@@ -8,8 +8,8 @@ require "shorturl"
 module Scraper
   def self.scrape(page_query)
     twitter = "https://twitter.com/"
-    url = page_query if page_query[0,20] == twitter
-    url = RedirectFollower.new("#{page_query}").url unless page_query[0,20] == twitter
+    url = page_query if page_query.starts_with?(twitter)
+    url = RedirectFollower.new("#{page_query}").url unless page_query.starts_with?(twitter)
     # url = HTTParty.get(page_query) if page_query[0,19] = "https://tinyurl.com"
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)

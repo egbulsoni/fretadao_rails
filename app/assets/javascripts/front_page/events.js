@@ -1,2 +1,8 @@
-// name = Document.querySelector('#profile_name')
-// url = Document.querySelector('#profile_url')
+$.ajax({
+    url: "/sub_comments",
+    type: "POST",
+    data: {subcomment: {
+             field: val,
+             field2: val, etc... }},
+    success: function(resp){ }
+});
