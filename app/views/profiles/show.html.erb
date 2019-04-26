@@ -11,9 +11,13 @@
       <br>
       <%= @profile.name %>
       <br>
-      <%= @profile.url %>
-      <br>
       <%= @profile.username %>
+      <br>
+      <a href="<%= @profile.url %>">perfil</a>
+      <br>
+      <%= @profile.desc %>
+      <br>
+      <%= link_to "Home", root_path %>
 
     </div>
   </body>

@@ -1,5 +1,2 @@
-// add = document.querySelector("trigger")
-// add.addEventListener('click', function(e){
-//   e.preventDefault()
-//
-// })
+// name = Document.querySelector('#profile_name')
+// url = Document.querySelector('#profile_url')

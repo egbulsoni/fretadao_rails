@@ -1,0 +1,11 @@
+<script src="events.js" type="javascript.js"></script>
+<%= link_to "Profile", root_path %>
+<h1>Twitter Profiles</h1>
+<%= form_for @profile do |f| %>
+  <%= label_tag(:name, "Title:") %>
+  <%= f.text_field :name %></br>
+
+  <%= label_tag(:url, "URL:") %>
+  <%= f.text_field :url %></br>
+  <%= f.submit "Create" %>
+<% end %>

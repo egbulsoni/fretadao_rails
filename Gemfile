@@ -8,7 +8,8 @@ gem 'gon', '~> 6.2', '>= 6.2.1'
 # scrapper module's gems
 gem 'nokogiri', '~> 1.10', '>= 1.10.3'
 gem 'httparty', '~> 0.17.0'
-gem 'tinyurl', '~> 1.0'
+gem 'shorturl', '~> 1.0'
+# gem 'tinyurl', '~> 1.0'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '~> 5.2.3'
 # Use sqlite3 as the database for Active Record
