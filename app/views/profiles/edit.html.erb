@@ -1,0 +1,17 @@
+<h1>Edit existing profile</h1>
+<%= link_to "Profile", root_path %>
+<h1>Twitter Profiles</h1>
+<%= form_for @profile do |f| %>
+  <%= label_tag(:name, "Name:") %>
+  <%= f.text_field :name %></br>
+
+  <%= label_tag(:url, "URL:") %>
+  <%= f.text_field :url %></br>
+
+  <%= label_tag(:username, "Username:") %>
+  <%= f.text_field :username %></br>
+
+  <%= label_tag(:desc, "Description:") %>
+  <%= f.text_field :desc %></br>
+  <%= f.submit "Update" %>
+<% end %>

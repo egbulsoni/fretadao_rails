@@ -29,7 +29,9 @@
     <div class="container">
       <ul id="profiles">
         <% @profiles.each do |profile| %>
-          <li><a href="profiles/<%=profile.id%>"><%= profile.username %></a> <a href=<%=profile.url%>><%=profile.url%></a></li>
+          <li><a href="profiles/<%=profile.id%>"><%= profile.username %></a> <a href=<%=profile.url%>><%=profile.url%></a>
+          <%= link_to "edit", edit_profile_path(profile[:id]) %></li> 
+
         <% end %>
       </ul>
 
