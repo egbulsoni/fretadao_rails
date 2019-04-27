@@ -9,20 +9,16 @@
     <h1>Twitter Fetcher</h1>
     <h3>Crawling in my rails, these tweets they will not heal!</h3>
 
-    <!-- <form action="profiles" method="POST">
-      <label for="input">
-        Screenname: <input type="text" name="name" placeholder="Fretadao"/>
-        <br>
-        Add profile: <input type="text" name="twitter" placeholder="/usefretadao"/>
-      </label>
-      <button type="submit" class="trigger">Add profile</button>
-      <br>
-    </form> -->
+    <h4>Search: </h4>
+    <%= form_tag(profiles_path, method: :get) do %>
+      <%= text_field_tag(:search, params[:search]) %>
+      <%= submit_tag ("Search") %>
+    <% end %>
 
-    <form action="/search" method="POST">
+    <!-- <form action="/search" method="POST">
       <label for="input">Search profile: <input type="text" name="search" placeholder="gameideamachine"/></label>
       <button type="submit" class="fetcher">Search profile</button>
-    </form>
+    </form> -->
     <br>
     <%= link_to "Add new profile", "/profiles/new" %>
     <hr color="#D0D0D0" size='2px'>
@@ -35,8 +31,9 @@
           <%= link_to "delete", profile, method: :delete, data: { confirm: "You sure?" }%></li>
         <% end %>
       </ul>
-
     </div>
+
+
 
 
   </body>

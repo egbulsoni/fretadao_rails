@@ -3,6 +3,10 @@ git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 
 ruby '2.6.3'
 
+# materialize sass
+gem 'materialize-sass', '~> 1.0.0'
+# filtering ActiveRecords with ease
+# gem 'filterrific'
 # javascript/ruby communication
 gem 'gon', '~> 6.2', '>= 6.2.1'
 # scrapper module's gems

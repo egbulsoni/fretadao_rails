@@ -1,7 +1,14 @@
 class ProfilesController < ApplicationController
   include Scraper
+  require 'json'
   def index
-    @profiles = Profile.all
+    @profiles = Profile.search(params[:search])
+
+    # @filterrific = initialize_filterrific(
+    #   Profile,
+    #   params[:filterrific]
+    # ) or return
+    # @profiles = @filterrific.find.page(params[:page])
   end
 
   def new
@@ -50,6 +57,9 @@ class ProfilesController < ApplicationController
 
   private
 
+    def search_params
+      params.require(:profile).permit(:name, :username, :desc, :search)
+    end
     def edit_params
       params.require(:profile).permit(:name, :url, :image, :username, :desc)
     end
