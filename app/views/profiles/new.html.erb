@@ -5,21 +5,21 @@
     <title></title>
   </head>
   <body class="light-blue darken-1">
+    <%= render "profiles/nav_bar" %>
     <h2 class="blue-text text-lighten-5">Add new profile</h2>
     <div class="container">
     <%= form_for @profile do |f| %>
       <div class="col s6">
         <%= label_tag(:name, "Screenname:") %>
-        <%= f.text_field :name, placeholder: "Game Idea Machine",
+        <%= f.text_field :name, placeholder: "Fretadao",
         class:"col s3 cyan-text text-lighten-4" %></br>
       </div>
       <div class="col s6">
-        <%= label_tag(:url, "URL:") %>
-        <%= f.text_field :url, placeholder: "https://twitter.com/gameideamachine",
+        <%= label_tag(:url, "URL/handler:") %>
+        <%= f.text_field :url, placeholder: "@fretadao",
         class:"col s3 cyan-text text-lighten-4" %></br>
         <%= f.submit "Create" %>
       </div>
-      <%= link_to "Return to home", root_path, class:"cyan-text text-accent-2" %>
     <% end %>
     </div>
 
