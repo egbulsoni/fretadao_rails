@@ -4,16 +4,18 @@
     <meta charset="utf-8">
     <script src="events.js" type="javascript.js"></script>
     <title>Twitter Fetcher</title>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
   </head>
-  <body>
-    <h1>Twitter Fetcher</h1>
-    <h3>Crawling in my rails, these tweets they will not heal!</h3>
+  <body class="light-blue darken-1">
+    <h2 class="blue-text text-lighten-5">Twitter Fetcher</h2>
+    <h5 class="blue-text text-lighten-4">Crawling in my rails, these tweets they will not heal!</h5>
 
-    <h4>Search: </h4>
+    <div class="row">
     <%= form_tag(profiles_path, method: :get) do %>
-      <%= text_field_tag(:search, params[:search]) %>
-      <%= submit_tag ("Search") %>
+        <%= text_field_tag(:search, params[:search], placeholder:"Search", class:"col s3 cyan-text text-lighten-4") %>
+        <%= submit_tag ("Search"), class: "btn waves-effect waves-light amber darken-3" %>
     <% end %>
+    </div>
 
     <!-- <form action="/search" method="POST">
       <label for="input">Search profile: <input type="text" name="search" placeholder="gameideamachine"/></label>
@@ -22,13 +24,15 @@
     <br>
     <%= link_to "Add new profile", "/profiles/new" %>
     <hr color="#D0D0D0" size='2px'>
-    <div class="container">
-      <ul id="profiles">
+    <div class="container spaced">
+      <ul id="profiles" class="collection">
         <% @profiles.each do |profile| %>
-          <li><a href="profiles/<%=profile.id%>"><%= profile.username %></a>
-          <a href=<%=profile.url%>><%=profile.url%></a>
-          <%= link_to "edit", edit_profile_path(profile[:id]) %>
-          <%= link_to "delete", profile, method: :delete, data: { confirm: "You sure?" }%></li>
+          <li class="collection-item row light-blue lighten-3">
+            <%= link_to profile.name, profile_path(profile), class:"collection-item col s12 m6 l3 light-blue lighten-3 center-align" %>
+            <%= link_to "External link", profile.url, target: "_blank", class:"collection-item col s12 m6 l3 light-blue lighten-3 center-align" %>
+            <%= link_to "edit", edit_profile_path(profile[:id]), class:"collection-item col s12 m6 l3 light-blue lighten-3 center-align" %>
+            <%= link_to "delete", profile, method: :delete, data: { confirm: "Deseja realmente excluir?" }, class:"collection-item col s12 m6 l3 light-blue lighten-3 center-align"%>
+          </li>
         <% end %>
       </ul>
     </div>
