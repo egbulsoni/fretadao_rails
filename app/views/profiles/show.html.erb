@@ -9,15 +9,19 @@
 
       <img src="<%= @profile.image %>" class="responsive-img circle"/>
       <br>
-      <span class="cyan-text text-accent-2"><%= @profile.name %></span>
+      <h2 class="cyan-text text-accent-2"><%= @profile.name %></h2>
       <br>
       <span class="amber-text text-lighten-2"><%= @profile.username %></span>
       <br>
       <a class="cyan-text text-accent-2" href="<%= @profile.url %>">perfil</a>
       <br>
-      <p class="cyan-text text-accent-2"><%= @profile.desc %></p>
+      <p class="cyan-text text-accent-2"><span class="cyan-text text-lighten-3">Description: </span><%= @profile.desc %></p>
+      <%= link_to "edit", edit_profile_path(@profile), class:"cyan-text text-accent-2"%>
       <br>
-      <%= link_to "Return to home", root_path, class:"blue-text text-lighten-5" %>
+      <%= link_to "delete", @profile, method: :delete, data: { confirm: "Deseja realmente excluir?" }, class:"cyan-text text-accent-2"%>
+      <br>
+      <br>
+      <%= link_to "Return to home", root_path, class:"cyan-text text-accent-2" %>
 
     </div>
   </body>

@@ -1,16 +1,16 @@
-#!/bin/ruby
+# frozen_string_literal: true
+
 require 'httparty'
 require 'nokogiri'
 require 'byebug'
 # require 'tiny_url'
-require "shorturl"
+require 'shorturl'
 
 module Scraper
   def self.scrape(page_query)
-    twitter = "https://twitter.com/"
+    twitter = 'https://twitter.com/'
     url = page_query if page_query.starts_with?(twitter)
-    url = RedirectFollower.new("#{page_query}").url unless page_query.starts_with?(twitter)
-    # url = HTTParty.get(page_query) if page_query[0,19] = "https://tinyurl.com"
+    url = RedirectFollower.new(page_query.to_s).url unless page_query.starts_with?(twitter)
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
     profile_pic = parsed_page.css('img.ProfileAvatar-image').attribute('src')
@@ -18,15 +18,12 @@ module Scraper
     profile_desc = parsed_page.css('p.ProfileHeaderCard-bio.u-dir')
 
     # return a hash (dictionary) with profile info
-    profile = {
-      # img: "#{TinyUrl.make_request profile_pic.text}",
-      img: "#{ShortURL.shorten("#{profile_pic}")}",
+    {
+      img: ShortURL.shorten(profile_pic.to_s).to_s,
       username: profile_nickname.text.strip.gsub('\n', ''),
-      # url: "#{TinyUrl.make_request url}"
-      url: "#{ShortURL.shorten("#{url}")}",
-      desc: "#{profile_desc.text.strip}"
+      url: ShortURL.shorten(url.to_s).to_s,
+      desc: profile_desc.text.strip.to_s
     }
-
   end
 end
 

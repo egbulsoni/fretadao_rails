@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class Profile < ApplicationRecord
   # require 'filterrific'
   # filterrific(
@@ -10,12 +12,12 @@ class Profile < ApplicationRecord
 
   def self.search(search)
     if search
-      profile = Profile.where('name LIKE ? OR username LIKE ? OR desc LIKE ?', 
-        "%#{search}%", "%#{search}%", "%#{search}%")
+      profile = Profile.where('name LIKE ? OR username LIKE ? OR desc LIKE ?',
+                              "%#{search}%", "%#{search}%", "%#{search}%")
 
-      #Profile.find_by(name: search)
+      # Profile.find_by(name: search)
       if profile
-        self.where(id: profile)
+        where(id: profile)
       else
         Profile.all
       end
@@ -23,5 +25,4 @@ class Profile < ApplicationRecord
       Profile.all
     end
   end
-
 end

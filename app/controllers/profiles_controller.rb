@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 class ProfilesController < ApplicationController
   include Scraper
   require 'json'
@@ -17,13 +19,12 @@ class ProfilesController < ApplicationController
 
   def create
     @values = Scraper.scrape(allowed_params[:url])
-    @profile = Profile.create({:name => allowed_params[:name],
-      :image => @values[:img], :username => @values[:username],
-      :url => @values[:url], :desc => @values[:desc]})
+    @profile = Profile.create(name: allowed_params[:name],
+                              image: @values[:img], username: @values[:username],
+                              url: @values[:url], desc: @values[:desc])
     @profile.save
     redirect_to root_path
     # byebug
-
   end
 
   def show
@@ -37,9 +38,9 @@ class ProfilesController < ApplicationController
   def update
     @values = Scraper.scrape(edit_params[:url])
     @profile = Profile.find(params[:id])
-    @profile.update({name: edit_params[:name],
+    @profile.update(name: edit_params[:name],
                     image: @values[:img], username: edit_params[:username],
-                    url: @values[:url], desc: edit_params[:desc]})
+                    url: @values[:url], desc: edit_params[:desc])
 
     redirect_to profile_path(@profile)
   end
@@ -57,14 +58,15 @@ class ProfilesController < ApplicationController
 
   private
 
-    def search_params
-      params.require(:profile).permit(:name, :username, :desc, :search)
-    end
-    def edit_params
-      params.require(:profile).permit(:name, :url, :image, :username, :desc)
-    end
+  def search_params
+    params.require(:profile).permit(:name, :username, :desc, :search)
+  end
 
-    def allowed_params
-      params.require(:profile).permit(:name, :url)
-    end
+  def edit_params
+    params.require(:profile).permit(:name, :url, :image, :username, :desc)
+  end
+
+  def allowed_params
+    params.require(:profile).permit(:name, :url)
+  end
 end
