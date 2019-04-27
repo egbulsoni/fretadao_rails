@@ -1,17 +1,43 @@
-<h1>Edit existing profile</h1>
-<%= link_to "Profile", root_path %>
-<h1>Twitter Profiles</h1>
-<%= form_for @profile do |f| %>
-  <%= label_tag(:name, "Name:") %>
-  <%= f.text_field :name %></br>
+<!DOCTYPE html>
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+  </head>
+  <body class="light-blue darken-1">
+    <h2 class="blue-text text-lighten-5">Edit existing profile</h2>
+    <h4 class="blue-text text-lighten-4 center">Twitter Profile</h4>
+      <div class="container row">
+      <%= form_for @profile do |f| %>
+        <div class="col s6">
+          <%= label_tag(:name, "Name:") %>
+          <%= f.text_field :name, class:"col s3 cyan-text text-lighten-4" %>
+        </br>
+        </div>
 
-  <%= label_tag(:url, "URL:") %>
-  <%= f.text_field :url %></br>
+        <div class="col s6">
+          <%= label_tag(:url, "URL:") %>
+          <%= f.text_field :url, class:"col s3 cyan-text text-lighten-4" %>
+        </br>
+        </div>
 
-  <%= label_tag(:username, "Username:") %>
-  <%= f.text_field :username %></br>
+        <div class="col s6">
+          <%= label_tag(:username, "Username:") %>
+          <%= f.text_field :username, class:"col s3 cyan-text text-lighten-4" %>
+        </br>
+        </div>
 
-  <%= label_tag(:desc, "Description:") %>
-  <%= f.text_field :desc %></br>
-  <%= f.submit "Update" %>
-<% end %>
+        <div class="col s6">
+          <%= label_tag(:desc, "Description:") %>
+          <%= f.text_field :desc, class:"col s3 cyan-text text-lighten-4" %>
+        </br>
+        </div>
+
+        <%= f.submit "Update" %>
+      </div>
+    <% end %>
+
+
+  </body>
+</html>

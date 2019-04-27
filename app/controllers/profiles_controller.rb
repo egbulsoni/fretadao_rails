@@ -20,7 +20,8 @@ class ProfilesController < ApplicationController
   def create
     @values = Scraper.scrape(allowed_params[:url])
     @profile = Profile.create(name: allowed_params[:name],
-                              image: @values[:img], username: @values[:username],
+                              image: @values[:img],
+                              username: @values[:username],
                               url: @values[:url], desc: @values[:desc])
     @profile.save
     redirect_to root_path

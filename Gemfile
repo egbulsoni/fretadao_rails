@@ -7,10 +7,8 @@ ruby '2.6.3'
 
 # materialize sass
 gem 'materialize-sass', '~> 1.0.0'
-# filtering ActiveRecords with ease
-# gem 'filterrific'
-# javascript/ruby communication
-gem 'gon', '~> 6.2', '>= 6.2.1'
+# gem 'url_expander'
+gem 'embiggen', '~> 1.5'
 # scrapper module's gems
 gem 'httparty', '~> 0.17.0'
 gem 'nokogiri', '~> 1.10', '>= 1.10.3'

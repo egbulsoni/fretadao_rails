@@ -24,12 +24,12 @@
     <br>
     <%= link_to "Add new profile", "/profiles/new", class:"amber-text text-lighten-3" %>
     <hr color="#D0D0D0" size='2px'>
-    <div class="container spaced">
+    <div class="container">
       <ul id="profiles" class="collection">
         <% @profiles.each do |profile| %>
           <li class="collection-item row light-blue lighten-3">
-            <%= link_to profile.name, profile_path(profile), class:"collection-item col s6 light-blue lighten-3 center-align" %>
-            <%= link_to "External link", profile.url, target: "_blank", class:"collection-item col s6 light-blue lighten-3 center-align" %>
+            <%= link_to profile.name, profile_path(profile), class:"collection-item col s6 light-blue lighten-3 center-align blue-grey-text" %>
+            <%= link_to "External link", profile.url, target: "_blank", class:"collection-item col s6 light-blue lighten-3 center-align blue-grey-text" %>
           </li>
         <% end %>
       </ul>
