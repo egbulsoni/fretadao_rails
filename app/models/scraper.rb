@@ -1,3 +1,5 @@
+# frozen_string_literal: true
+
 # This module scraps a twitter profile, and gets its image, username
 # and description. To use it, import the module, and call it.
 # let 'url' be twitter.com/anything or https://twitter.com/anything.
@@ -11,10 +13,10 @@ require 'embiggen'
 module Scraper
   def self.scrape(page_query)
     # expressions to check up
-    start = "https://"
+    start = 'https://'
     twitter = %r{twitter.com\/.{1,}}
     # URL treatments
-    url = ""
+    url = ''
     url = start unless page_query.start_with?(start)
     url << page_query if page_query.match(twitter)
     url << "twitter.com/#{page_query[1..]}" if page_query.start_with?('@')

@@ -11,7 +11,7 @@
     <h4 class="blue-text text-lighten-4 center">Twitter Profile</h4>
       <div class="container row">
       <%= form_for @profile do |f| %>
-        <img src="<%= @profile.image %>" class="responsive-img circle"/>
+        <img alt="Profile image" src="<%= @profile.image %>" class="responsive-img circle"/>
         <br>
         <div class="col s6">
           <%= label_tag(:name, "Name:") %>
