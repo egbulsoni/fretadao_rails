@@ -17,7 +17,7 @@ module Scraper
     url = ""
     url = start unless page_query.start_with?(start)
     url << page_query if page_query.match(twitter)
-    url << "twitter.com/#{page_query[1..]}" if page_query[0] = '@'
+    url << "twitter.com/#{page_query[1..]}" if page_query.start_with?('@')
     if Embiggen::URI(page_query.to_s).shortened?
       url = Embiggen::URI(page_query.to_s).expand.to_s
     end

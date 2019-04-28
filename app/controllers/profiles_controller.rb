@@ -5,12 +5,6 @@ class ProfilesController < ApplicationController
   require 'json'
   def index
     @profiles = Profile.search(params[:search])
-
-    # @filterrific = initialize_filterrific(
-    #   Profile,
-    #   params[:filterrific]
-    # ) or return
-    # @profiles = @filterrific.find.page(params[:page])
   end
 
   def new

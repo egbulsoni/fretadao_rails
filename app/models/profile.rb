@@ -11,4 +11,7 @@ class Profile < ApplicationRecord
       Profile.all
     end
   end
+
+  # scope :verify, ->(id) {Profile.find(id)}
+
 end
