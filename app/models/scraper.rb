@@ -1,5 +1,3 @@
-# frozen_string_literal: true
-
 # This module scraps a twitter profile, and gets its image, username
 # and description. To use it, import the module, and call it.
 # let 'url' be twitter.com/anything or https://twitter.com/anything.
@@ -15,6 +13,11 @@ module Scraper
     # expressions to check up
     start = 'https://'
     twitter = %r{twitter.com\/.{1,}}
+    # constants to be scrapped
+    img = 'img.ProfileAvatar-image'
+    nick = 'h2.ProfileHeaderCard-screenname.u-inlineBlock.u-dir'
+    desc = 'p.ProfileHeaderCard-bio.u-dir'
+
     # URL treatments
     url = ''
     url = start unless page_query.start_with?(start)
@@ -26,10 +29,9 @@ module Scraper
     # parsing and scraping
     unparsed_page = HTTParty.get(url)
     parsed_page = Nokogiri::HTML(unparsed_page)
-    profile_pic = parsed_page.css('img.ProfileAvatar-image').attribute('src')
-    profile_nickname = parsed_page.css('h2.ProfileHeaderCard-screenname
-      .u-inlineBlock.u-dir')
-    profile_desc = parsed_page.css('p.ProfileHeaderCard-bio.u-dir')
+    profile_pic = parsed_page.css(img).attribute('src')
+    profile_nickname = parsed_page.css(nick)
+    profile_desc = parsed_page.css(desc)
 
     # return a hash (dictionary) with profile info
     {
