@@ -14,7 +14,7 @@
       <%= form_tag(profiles_path, method: :get) do %>
         <%= text_field_tag(:search, params[:search], placeholder:"Search", class:"col s3 cyan-text text-lighten-4") %>
         &nbsp; &nbsp;&nbsp;&nbsp;
-        <%= submit_tag ("Search"), class: "btn waves-effect waves-light amber darken-3" %>
+        <button class="btn waves-effect waves-light amber darken-3" type="submit" name="commit"><i class="material-icons right">search</i>Search</button>        
       <% end %>
     </div>
 

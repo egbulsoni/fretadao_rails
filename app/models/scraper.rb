@@ -28,6 +28,15 @@ module Scraper
     end
     # parsing and scraping
     unparsed_page = HTTParty.get(url)
+    case unparsed_page.code
+    when 404
+      puts "error..."
+      unparsed_page = HTTParty.get("https://twitter.com/unknown")
+    when 500..600
+      puts "error..."
+      unparsed_page = HTTParty.get("https://twitter.com/unknown")
+    end
+
     parsed_page = Nokogiri::HTML(unparsed_page)
     profile_pic = parsed_page.css(img).attribute('src')
     profile_nickname = parsed_page.css(nick)

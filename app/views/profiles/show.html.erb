@@ -2,13 +2,16 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <title>Mostrar usuario</title>
   </head>
   <body class="light-blue darken-1">
     <%= render "profiles/nav_bar" %>
     <div class="container">
 
-      <img alt="Profile image" src="<%= @profile.image %>" class="responsive-img circle"/>
+      <div class="center">
+        <img alt="Profile image" src="<%= @profile.image %>" class="responsive-img circle"/>
+      </div>
       <br>
       <h2 class="cyan-text text-accent-2"><%= @profile.name %></h2>
       <br>
@@ -17,12 +20,8 @@
       <a class="cyan-text text-accent-2" href="<%= @profile.url %>">perfil</a>
       <br>
       <p class="cyan-text text-accent-2"><span class="cyan-text text-lighten-3">Description: </span><%= @profile.desc %></p>
-      <%= link_to "edit", edit_profile_path(@profile), class:"cyan-text text-accent-2"%>
-      <br>
-      <%= link_to "delete", @profile, method: :delete, data: { confirm: "Deseja realmente excluir?" }, class:"cyan-text text-accent-2"%>
-      <br>
-      <br>
-
+      <a href="/profiles/<%=@profile.id%>/edit"><button type="submit" class="btn waves-effect waves-light amber darken-3"><i class="material-icons right">edit</i>Edit</button></a> &nbsp; &nbsp;&nbsp;&nbsp;
+      <%= link_to "delete", @profile, method: :delete, data: { confirm: "Deseja realmente excluir?" }, class:"red-text text-accent-2"%>
     </div>
   </body>
 </html>

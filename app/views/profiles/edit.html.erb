@@ -3,7 +3,7 @@
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
-    <title></title>
+    <title>Edit page</title>
   </head>
   <body class="light-blue darken-1">
     <%= render "profiles/nav_bar" %>
@@ -11,36 +11,38 @@
     <h4 class="blue-text text-lighten-4 center">Twitter Profile</h4>
       <div class="container row">
       <%= form_for @profile do |f| %>
-        <img alt="Profile image" src="<%= @profile.image %>" class="responsive-img circle"/>
+        <div class="center">
+          <img alt="Profile image" src="<%= @profile.image %>" class="responsive-img circle"/>
+        </div>
         <br>
         <div class="col s6">
-          <%= label_tag(:name, "Name:") %>
+          <label class="left light-blue-text text-lighten-4">Name:</label>
           <%= f.text_field :name, class:"col s3 cyan-text text-lighten-4" %>
         </br>
         </div>
 
         <div class="col s6">
-          <%= label_tag(:url, "URL:") %>
+          <label class="left light-blue-text text-lighten-4">URL/@user:</label>
           <%= f.text_field :url, class:"col s3 cyan-text text-lighten-4" %>
         </br>
         </div>
 
         <div class="col s6">
-          <%= label_tag(:username, "Username:") %>
+          <label class="left light-blue-text text-lighten-4">Username:</label>
           <%= f.text_field :username, class:"col s3 cyan-text text-lighten-4" %>
         </br>
         </div>
 
         <div class="col s6">
-          <%= label_tag(:desc, "Description:") %>
+          <label class="left light-blue-text text-lighten-4">Description:</label>
           <%= f.text_field :desc, class:"col s3 cyan-text text-lighten-4" %>
         </br>
         </div>
 
-        <%= f.submit "Update" %>
+
+        <%= f.submit "Save", class:"btn waves-effect waves-light amber darken-3" %>
       </div>
     <% end %>
-
 
   </body>
 </html>
