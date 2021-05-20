@@ -11,7 +11,7 @@ gem 'materialize-sass', '~> 1.0.0'
 gem 'embiggen', '~> 1.5'
 # scrapper module's gems
 gem 'httparty', '~> 0.17.0'
-gem 'nokogiri', '~> 1.10', '>= 1.10.3'
+gem 'nokogiri', '~> 1.11'
 gem 'redirect_follower', '~> 0.1.1'
 gem 'shorturl', '~> 1.0'
 # gem 'tinyurl', '~> 1.0'
